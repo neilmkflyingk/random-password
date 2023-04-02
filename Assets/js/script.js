@@ -1,20 +1,21 @@
-
 var generateBtn = document.querySelector("#generate");
 
-
-
 function generatePassword() {
+
   // prompt for password length
   let length = parseInt(prompt("Choose password length. \nPassword must be 8-128 characters in length."));
+  
   // validate password length
   if (length < 8 || length > 128) {
     alert("Error! \nInvalid passwored length. \nPlease enter password length between 8 and 128 characters.")
   } 
+
   // prompt for character types
   let incUpperCase = confirm("Would you like to include upper case characters?");
   let incLowerCase = confirm("Would you like to include lower case characters?");
   let incNumeric = confirm("Would you like to include numbers?");
   let incSpecialCharacter = confirm("Would you like to include special characters?");
+  
   // validate character types
   if (!incUpperCase && !incLowerCase && !incNumeric && !incSpecialCharacter) {
     alert("Error! Must include at least one type of character.")
@@ -55,9 +56,7 @@ function generatePassword() {
     passNum,
     passCharacter,
   }
-  
-  
-    
+      
   // picks a random character from a string
   var randomChar = (string) => string[Math.floor(Math.random() * string.length)];
   
@@ -89,39 +88,12 @@ function generatePassword() {
 
   let finalPassword = pwd.join("");
   
-
-  return finalPassword;
-  
-  
-  
-
-
-  
-  
-  
-  
-  
-  /*let options = [passNum, passUpper, passLower, passCharacter];
-
-  let results = "";
-
-  for (var i =0; i < length; i++) {
-    let randomIndex = Math.floor(Math.random() * options.length);
-    let randomCharacter = options[randomIndex];
-    results += randomCharacter;
-  }
-  return results; */
-  
- 
-  
+  return finalPassword; 
 }
-
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
 // Add event listener to generate button
