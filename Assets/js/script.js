@@ -8,6 +8,7 @@ function generatePassword() {
   // validate password length
   if (length < 8 || length > 128) {
     alert("Error! \nInvalid passwored length. \nPlease enter password length between 8 and 128 characters.")
+    return "" // added return to end function if invalid length entered
   } 
 
   // prompt for character types
@@ -19,6 +20,7 @@ function generatePassword() {
   // validate character types
   if (!incUpperCase && !incLowerCase && !incNumeric && !incSpecialCharacter) {
     alert("Error! Must include at least one type of character.")
+    return ""  // added return to end function if no character types are selected
   }
 
   // returns string of available characters if that type is selected
